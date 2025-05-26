@@ -7,9 +7,9 @@ flowchart TD
     Start([Start]) --> Init[Initialize game: Set min and max range, Generate random number]
     Init --> Input[Prompt user for a guess]
     Input --> CheckValid{Is input a number within range?}
-    CheckValid -- No --> Invalid[Display "Invalid input. Try again."] --> Input
+    CheckValid -- No --> Invalid[Display 'Invalid input. Try again.'] --> Input
     CheckValid -- Yes --> Compare{Is guess correct?}
-    Compare -- Yes --> Correct[Display "Correct!"] --> End([End])
+    Compare -- Yes --> Correct[Display 'Correct!'] --> End([End])
     Compare -- No --> HighLow{Is guess too high?}
-    HighLow -- Yes --> TooHigh[Display "Too high"] --> Input
-    HighLow -- No --> TooLow[Display "Too low"] --> Input
+    HighLow -- Yes --> TooHigh[Display 'Too high'] --> Input
+    HighLow -- No --> TooLow[Display 'Too low'] --> Input
