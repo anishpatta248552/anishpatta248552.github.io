@@ -1,27 +1,15 @@
-# Random Guessing Game - Flowchart
+# Random Guessing Game Flowchart
 
-This file presents the flowchart and description of a random number guessing game. The game generates a random number, accepts user guesses, and gives feedback until the user guesses correctly.
-
-```mermaid
-flowchart TD
-    Start([Start])
+This flowchart describes the logic of a number guessing game where a user tries to guess a randomly generated number. The program gives feedback and loops until the user guesses correctly. It also validates the user input.
 
 ```mermaid
 flowchart TD
-    Start([Start])
-    A[Generate random number]
-    B[Prompt user for a guess]
-    C{Is input a number?}
-    D[Show error and prompt again]
-    E{Is guess correct?}
-    F[Too low - prompt again]
-    G[Too high - prompt again]
-    H[Display success message]
-    End([End])
-
-    Start --> A --> B --> C
-    C -- No --> D --> B
-    C -- Yes --> E
-    E -- Yes --> H --> End
-    E -- No --> F --> B
-    E -- No --> G --> B
+    Start([Start]) --> Init[Initialize game: Set min and max range, Generate random number]
+    Init --> Input[Prompt user for a guess]
+    Input --> CheckValid{Is input a number within range?}
+    CheckValid -- No --> Invalid[Display "Invalid input. Try again."] --> Input
+    CheckValid -- Yes --> Compare{Is guess correct?}
+    Compare -- Yes --> Correct[Display "Correct!"] --> End([End])
+    Compare -- No --> HighLow{Is guess too high?}
+    HighLow -- Yes --> TooHigh[Display "Too high"] --> Input
+    HighLow -- No --> TooLow[Display "Too low"] --> Input
